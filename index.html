@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Ext.ux.TabStripHide 1.0b3</title>
+		<link rel="stylesheet" type="text/css" href="../../ext-3.2-beta/resources/css/ext-all.css" />
+		<script type="text/javascript" src="../../ext-3.2-beta/adapter/ext/ext-base-debug.js"></script>
+		<script type="text/javascript" src="../../ext-3.2-beta/ext-all-debug.js"></script>
+		<script type="text/javascript" src="Ext.ux.TabStripHide-devel.js"></script>
+		
+		<script type="text/javascript">
+			var tabs = new Ext.TabPanel({
+				activeTab: 0,
+				renderTo: Ext.getBody(),
+				width: 800,
+				height: 600,
+				plugins: new Ext.ux.TabStripHide({
+					autoHide: true, //defaults to true
+					stripHideAnim: true //defaults to true
+				}),
+				defaults: {
+					closable: true
+				},
+				bbar: [{
+					text: "Add Tab",
+					handler: function() {
+						this.ownerCt.ownerCt.add({
+							title: "New Tab",
+							html: "Got a new one"
+						});
+					}
+				},"->",{
+					text: "Toggle (No Anim)",
+					handler: function() {
+						this.ownerCt.ownerCt.toggleHideStrip(false); //if option not set, will default to stripHideAnim
+					}
+				},{
+					text: "Toggle (With Anim)",
+					handler: function() {
+						this.ownerCt.ownerCt.toggleHideStrip(true); //if option not set, will default to stripHideAnim
+					}
+				}],
+				items: [{
+					title: "Tab One",
+					html: "blah blah blah"
+				}]
+			});
+		</script>
+	</head>
+
+	<body>
+	</body>
+</html>
