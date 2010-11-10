@@ -67,12 +67,12 @@ Ext.ux.TabStripHide = Ext.extend(Object, {
 		}
 	},
 	onRemove: function(tabpanel, tab) {
-		if (tab instanceof Ext.Panel && this.items.items.length === 1) {
+		if (tab.ownerCt instanceof Ext.TabPanel && this.items.items.length === 1) {
 			this.hideStrip(this.stripHideAnim);
 		}
 	},
 	onAdd: function(tabpanel, tab) {
-		if (tab instanceof Ext.Panel && this.header.hidden === true) {
+		if (tab.ownerCt instanceof Ext.TabPanel && this.header.hidden === true) {
 			this.hideTabStripItem(tab);
 			this.showStrip(this.stripHideAnim);
 			new Ext.util.DelayedTask(function(){
